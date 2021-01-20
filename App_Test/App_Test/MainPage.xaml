@@ -11,20 +11,45 @@
             <!-- Place new controls here -->
             <Label Text="Welcome to Base Converter 2.0!" 
                HorizontalOptions="Center"
+               FontSize="24"
+               FontAttributes="Bold"
                VerticalOptions="CenterAndExpand" />
-            <Entry Placeholder="Enter Base Number"
+
+            <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                <Entry Placeholder="Enter Base Number"
                    PlaceholderColor="Olive"
                    MaxLength="15"
                    Keyboard = "Numeric"
                    TextChanged="OnEntryTextChanged"
                    Completed="OnEntryCompleted" />
+                <Picker x:Name="Original_Base" Title="Select Base" HorizontalOptions="FillAndExpand">
+                    <Picker.Items>
+                        <x:String>2</x:String>
+                        <x:String>8</x:String>
+                        <x:String>10</x:String>
+                        <x:String>16</x:String>
+                    </Picker.Items>
+                </Picker>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                <Entry Placeholder="Enter 2nd Base Number"
+                   PlaceholderColor="Olive"
+                   MaxLength="15"
+                   Keyboard = "Numeric"
+                   TextChanged="OnEntryTextChanged"
+                   Completed="OnEntryCompleted" />
+                <Picker x:Name="New_Base" Title="Select Base"  HorizontalOptions="FillAndExpand">
+                <Picker.Items>
+                    <x:String>2</x:String>
+                    <x:String>8</x:String>
+                    <x:String>10</x:String>
+                    <x:String>16</x:String>
+                </Picker.Items>
+                </Picker>
+            </StackLayout>
+
             <Entry Placeholder="Enter Decimal Number"
-                   PlaceholderColor="Olive"
-                   MaxLength="15"
-                   Keyboard = "Numeric"
-                   TextChanged="OnEntryTextChanged"
-                   Completed="OnEntryCompleted" />
-            <Entry Placeholder="Enter 2nd Base Number"
                    PlaceholderColor="Olive"
                    MaxLength="15"
                    Keyboard = "Numeric"
