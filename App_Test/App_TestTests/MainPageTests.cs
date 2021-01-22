@@ -11,13 +11,6 @@ namespace App_Test.Tests
     [TestClass()]
     public class MainPageTests
     {
-        [TestMethod()]
-        public void Convert_To_DecimalTest()
-        {
-            Number number = new Number(12345, 8, 10);
-            int expected = 5349;
-            int result = number.Convert_To_Decimal();
-            Assert.AreEqual(expected, result);
-        }
+
     }
 }

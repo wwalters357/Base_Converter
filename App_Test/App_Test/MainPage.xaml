@@ -15,55 +15,90 @@
                FontAttributes="Bold"
                VerticalOptions="CenterAndExpand" />
 
-            <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
-                <Entry Placeholder="Enter Base Number"
+            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+                <Label FontSize="20" FontAttributes="Bold" >Enter Number</Label>
+                <Entry Placeholder="Enter Number"
                    PlaceholderColor="Olive"
                    MaxLength="15"
-                   Keyboard = "Numeric"
+                   Keyboard = "Default"
                    TextChanged="OnEntryTextChanged"
                    Completed="OnEntryCompleted" />
-                <Picker x:Name="Original_Base" Title="Select Base" HorizontalOptions="FillAndExpand">
+
+                <Label FontSize="20" FontAttributes="Bold" >From Base</Label>
+                <Picker x:Name="From_Base"
+                        Title="Select Base"
+                        SelectedIndexChanged="OnSelectedBase"
+                        HorizontalOptions="FillAndExpand">
                     <Picker.Items>
-                        <x:String>2</x:String>
-                        <x:String>8</x:String>
-                        <x:String>10</x:String>
-                        <x:String>16</x:String>
+                        <x:String>2 (Binary)</x:String>
+                        <x:String>3</x:String>
+                        <x:String>4</x:String>
+                        <x:String>5</x:String>
+                        <x:String>6</x:String>
+                        <x:String>7</x:String>
+                        <x:String>8 (Octal)</x:String>
+                        <x:String>9</x:String>
+                        <x:String>10 (Decimal)</x:String>
+                        <x:String>11</x:String>
+                        <x:String>12</x:String>
+                        <x:String>13</x:String>
+                        <x:String>14</x:String>
+                        <x:String>15</x:String>
+                        <x:String>16 (Hex)</x:String>
                     </Picker.Items>
                 </Picker>
-            </StackLayout>
 
-            <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
-                <Entry Placeholder="Enter 2nd Base Number"
-                   PlaceholderColor="Olive"
-                   MaxLength="15"
-                   Keyboard = "Numeric"
-                   TextChanged="OnEntryTextChanged"
-                   Completed="OnEntryCompleted" />
-                <Picker x:Name="New_Base" Title="Select Base"  HorizontalOptions="FillAndExpand">
-                <Picker.Items>
-                    <x:String>2</x:String>
-                    <x:String>8</x:String>
-                    <x:String>10</x:String>
-                    <x:String>16</x:String>
-                </Picker.Items>
+                <Label FontSize="20" FontAttributes="Bold" >To Base</Label>
+                <Picker x:Name="To_Base"
+                        Title="Select Base"
+                        SelectedIndexChanged="OnSelectedBase"
+                        HorizontalOptions="FillAndExpand">
+                    <Picker.Items>
+                        <x:String>2 (Binary)</x:String>
+                        <x:String>3</x:String>
+                        <x:String>4</x:String>
+                        <x:String>5</x:String>
+                        <x:String>6</x:String>
+                        <x:String>7</x:String>
+                        <x:String>8 (Octal)</x:String>
+                        <x:String>9</x:String>
+                        <x:String>10 (Decimal)</x:String>
+                        <x:String>11</x:String>
+                        <x:String>12</x:String>
+                        <x:String>13</x:String>
+                        <x:String>14</x:String>
+                        <x:String>15</x:String>
+                        <x:String>16 (Hex)</x:String>
+                    </Picker.Items>
                 </Picker>
-            </StackLayout>
 
-            <Entry Placeholder="Enter Decimal Number"
-                   PlaceholderColor="Olive"
-                   MaxLength="15"
-                   Keyboard = "Numeric"
-                   TextChanged="OnEntryTextChanged"
-                   Completed="OnEntryCompleted" />
-            <Button Text="Convert"
+                <Button Text="Convert"
                     VerticalOptions="CenterAndExpand"
                     HorizontalOptions="Center"
+                    HeightRequest="40"
+                    BorderRadius="20"
                     Clicked="Convert" />
-            <Label  x:Name="Answer"
-                    Text="Binary Conversion" 
-                    HorizontalOptions="End"
-                    VerticalOptions="Center" />
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <Label x:Name="Result"
+                        Text="Result = "   
+                        HeightRequest="40" 
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center" />
+                    <Label x:Name="Answer"
+                        Text="Answer" 
+                        HeightRequest="40" 
+                        FontSize="20"
+                        HorizontalOptions="StartAndExpand"
+                        VerticalOptions="Center" />
+                </StackLayout>
+                
+            </StackLayout>
+            
         </StackLayout>
+        
     </Frame>
 
 </ContentPage>

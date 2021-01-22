@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
@@ -25,51 +26,48 @@ namespace App_Test
         {
             string oldText = e.OldTextValue;
             string newText = e.NewTextValue;
+            Number.Instance.Value = newText;
         }
 
+        // User enters a number and presses enter.
         void OnEntryCompleted(object sender, EventArgs e)
         {
             string input = ((Entry)sender).Text;
-            if ( ((Entry)sender).Placeholder == "Enter Base Number" )
+            if ( ((Entry)sender).Placeholder == "Enter Number" )
             {
                 try
                 { 
-                    Number.Instance.Base_Number = Int32.Parse(input);
+                    Number.Instance.Value = input;
                 }
                 catch (FormatException)
                 {
-                    Console.WriteLine($"Unable to parse '{input}'\nMust enter an integer.");
-                }
-            }
-            else if ( ((Entry)sender).Placeholder == "Enter Decimal Number" )
-            {
-                try 
-                { 
-                    Number.Instance.Value = double.Parse(input);
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine($"Unable to parse '{input}'\nMust enter a Number.");
-                }
-            }
-            else if (((Entry)sender).Placeholder == "Enter 2nd Base Number")
-            {
-                try
-                {
-                    Number.Instance.New_Base_Number = Int32.Parse(input);
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine($"Unable to parse '{input}'\nMust enter an integer.");
+                    Console.WriteLine($"Unable to parse '{input}'\nMust enter an Integer with valid characters.");
                 }
             }
         }
 
+        // Reads in base from Drop-Down menu
+        void OnSelectedBase(object sender, EventArgs e)
+        {
+            Picker picker = sender as Picker;
+            int index = picker.SelectedIndex;
+            if (index != -1)
+            {
+                if (picker == From_Base)
+                {
+                    Number.Instance.Base_Number = index + 2;
+                }
+                else
+                {
+                    Number.Instance.New_Base_Number = index + 2;
+                }
+            }
+        }
+
+        // Preform conversion of number from original base to new base.
         void Convert(object sender, EventArgs e)
         {
-            string res = Number.Instance.Convert_Number();
-            Console.WriteLine(res);
-            Answer.Text = res;
+            Answer.Text = Number.Instance.Convert_Number();       
         }
     }
 }
