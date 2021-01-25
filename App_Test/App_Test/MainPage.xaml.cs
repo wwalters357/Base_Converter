@@ -26,6 +26,7 @@ namespace App_Test
         {
             string oldText = e.OldTextValue;
             string newText = e.NewTextValue;
+            // Stores whatever is in Enter number box incase enter is not pressed
             Number.Instance.Value = newText;
         }
 

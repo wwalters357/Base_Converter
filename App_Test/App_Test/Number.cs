@@ -146,6 +146,7 @@ namespace App_Test
             return Trim_Front(result);
         }
 
+        // Summation of each digit multipled by base raised to exponent.
         public BigInteger Convert_To_Decimal()
         {
             BigInteger result = BigInteger.Zero;
@@ -247,6 +248,7 @@ namespace App_Test
             return number;
         }
 
+        // first check if there is a valid base and then attempt conversion
         public string Convert_Number()
         {
             // Check if an appropriate base is used for specified number

@@ -7,6 +7,7 @@
              x:Class="App_Test.MainPage">
 
     <Frame BackgroundColor="Lavender" Padding="24" CornerRadius="0" >
+        
         <StackLayout>
             <!-- Place new controls here -->
             <Label Text="Welcome to Base Converter 2.0!" 
@@ -73,26 +74,24 @@
                 </Picker>
 
                 <Button Text="Convert"
-                    VerticalOptions="CenterAndExpand"
                     HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand"
                     HeightRequest="40"
                     BorderRadius="20"
                     Clicked="Convert" />
 
-                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
                     <Label x:Name="Result"
                         Text="Result = "   
-                        HeightRequest="40" 
                         FontSize="20"
                         FontAttributes="Bold"
                         HorizontalOptions="Start"
-                        VerticalOptions="Center" />
+                        VerticalOptions="CenterAndExpand" />
                     <Label x:Name="Answer"
                         Text="Answer" 
-                        HeightRequest="40" 
                         FontSize="20"
                         HorizontalOptions="StartAndExpand"
-                        VerticalOptions="Center" />
+                        VerticalOptions="CenterAndExpand" />
                 </StackLayout>
                 
             </StackLayout>
